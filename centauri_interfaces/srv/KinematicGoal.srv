@@ -1,0 +1,7 @@
+# Desired goal
+float64 x
+float64 y
+float64 z
+---
+# Obtained joint position
+float64[] q

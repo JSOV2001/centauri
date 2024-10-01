@@ -1,0 +1,32 @@
+# Libraries for file handling
+import os
+from ament_index_python import get_package_share_directory
+import xacro
+# Libraries for node launching
+from launch_ros.actions import Node
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch import LaunchDescription
+
+control_pkg = get_package_share_directory("centauri_description")
+control_filepath = os.path.join(control_pkg,'launch','control.launch.py')
+
+def generate_launch_description():
+    kinematics_server_node = Node(
+        package="centauri_kinematics",
+        executable="kinematics_server.py"
+    )
+
+    control_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([control_filepath]), 
+        launch_arguments= {
+            'use_sim_time': 'true', 
+            'use_ros2_control': 'true'
+        }.items()
+    )
+    
+    nodes_to_run = [
+        kinematics_server_node,
+        control_launch
+    ]
+    return LaunchDescription(nodes_to_run)
