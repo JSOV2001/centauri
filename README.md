@@ -1,6 +1,6 @@
 # Centauri
 
-![Centauri](https://github.com/user-attachments/assets/40181553-45d3-42e1-a3c6-698a27689c00)
+![image](https://github.com/user-attachments/assets/29b65d70-324c-4231-9c77-fcaac0e6c7d1)
 
 First, the robot need to be launched in RViz:
 
