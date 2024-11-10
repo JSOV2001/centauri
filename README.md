@@ -20,3 +20,5 @@ Here are other suggested goals to try:
 If it's necessary to check the kinematics solution through TF2, it can be done through the following command:
 
     ros2 run tf2_ros tf2_echo link0 link6
+
+![Centauri](https://github.com/user-attachments/assets/6e597bb3-bcee-4de0-9a1c-046138014e7c)
