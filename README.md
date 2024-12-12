@@ -1,6 +1,6 @@
 
 # Centauri
-Based-on the work from: https://github.com/andresaraque/centauri6dof.git
+Based-on the work of: https://github.com/andresaraque/centauri6dof.git
 
 Special thanks to @andresaraque, @franciscopedroza030595 and @vromerocano for their contribution to open-source movement in Colombia.
 
