@@ -2,7 +2,7 @@
 # Centauri
 Based-on the work of: https://github.com/andresaraque/centauri6dof.git
 
-Special thanks to @andresaraque, @franciscopedroza030595 and @vromerocano for their contribution to open-source movement in Colombia.
+Special thanks to @andresaraque, @franciscopedroza030595 and @vromerocano for their contribution to open-source movement in Colombia. More on that here: https://www.uao.edu.co/lo-uao-de-la-semana/centauri-el-robot-de-los-autonomos/
 
 ## Home Configuration
 In order to play with the robot, it needs to be launched in Gazebo firstly:
