@@ -61,10 +61,10 @@ First, the robot needs to be launched in Gazebo:
 
 Second, the robot needs a request in order to get to a desired goal:
 
-    ros2 run centauri_trajectory trajectory_client.py 0.351 -0.288 0.351
+    ros2 run centauri_trajectory trajectory_client.py 0.351 -0.288 0.351 5
 
-In this case: x = 0.351 ,  y = -0.288 and  z = 0.351. The same goals for inverse kinematics can be applied to try the trajectory generation.
+In this case: x = 0.351 ,  y = -0.288, and  z = 0.351, the same demo goal for inverse kinematics. However, now the robot must reach this goal in time-constrain of 5 seconds. 
 
-In case the kinematics solution needs to be checked through TF2, use the following command:
+Just like in the kinematics section, the solution can be checked through TF2 by using the following command:
 
     ros2 run tf2_ros tf2_echo base_footprint tool_center    
