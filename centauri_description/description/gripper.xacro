@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<!-- Gripper's right side -->
+  <link name="right_gear">
+    <inertial>
+      <origin xyz="-0.0065946 -0.00039537 -0.003" rpy="0 0 0" />
+      <mass value="0.0048785" />
+      <inertia  ixx="3.797704749390775E-07" ixy="0" ixz="0" iyy="1.4245008015482123E-06" iyz="0" izz="1.7750002759784226E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/right_gear.STL" />
+      </geometry>
+      <material name="centauri_yellow"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/right_gear.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="right_gear_joint" type="revolute">
+    <origin xyz="-0.0141687811604771 -0.00205172513025526 0.0240007513303376" rpy="1.57089248092531 0.383949555179722 -0.0673010584807898" />
+    <parent link="link6" />
+    <child link="right_gear" />
+    <axis xyz="0 0 1" />
+    <limit lower="-0.95" upper="0" effort="5" velocity="1" />
+    <dynamics friction="1.5" />
+  </joint>
+  
+  <link name="right_finger">
+    <inertial>
+      <origin xyz="-0.00410677673607357 0.0288723262754511 -0.00325238297571179" rpy="0 0 0" />
+      <mass value="0.0104910711600225" />
+      <inertia  ixx="4.784038229064912e-06" ixy="0" ixz="0" iyy="7.523532394095715e-07" iyz="0" izz="4.96987367460796e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/right_finger.STL" />
+      </geometry>
+      <material name="centauri_yellow"/>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/right_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_finger_joint" type="continuous">
+    <origin xyz="-0.0399999999999999 0 0" rpy="1.9909768278481E-13 -6.93889390390723E-18 1.08550321509249E-15" />
+    <parent link="right_gear" />
+    <child link="right_finger" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.5" upper="0" effort="5" velocity="1" />
+    <mimic joint="right_gear_joint" multiplier="-1" offset="0"/>
+    <dynamics friction="1.5"/>
+  </joint>
+
+  <link name="right_pivot">
+    <inertial>
+      <origin xyz="-0.019999999999913 3.73034936274053E-14 -0.00299999999909059" rpy="0 0 0" />
+      <mass value="0.00167027391699942" />
+      <inertia  ixx="1.3887110424777991e-08" ixy="0" ixz="0" iyy="3.2498259093576485e-07" iyz="0" izz="3.2884805768432345e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/right_pivot.STL" />
+      </geometry>
+      <material name="centauri_yellow"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/right_pivot.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_pivot_joint" type="revolute">
+    <origin xyz="-0.00718356702735162 -0.0025224669175542 0.044000380969009" rpy="1.57089248092551 0.383949555179722 -0.0673010584807898" />
+    <parent link="link6" />
+    <child link="right_pivot" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="5" velocity="1" />
+    <mimic joint="right_gear_joint" multiplier="1" offset="0"/> 
+    <dynamics friction="1.5" />
+  </joint>
+
+  <!-- Gripper's left side -->
+  <link name="left_gear">
+    <inertial>
+      <origin xyz="-0.00645273828292098 0.000406646504403807 -0.00300000575998524" rpy="0 0 0" />
+      <mass value="0.00500318588067354" />
+      <inertia  ixx="3.893573546761533e-07" ixy="0" ixz="0" iyy="1.4663493133889125e-06" iyz="0" izz="1.8256875522591515e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/left_gear.STL" />
+      </geometry>
+      <material name="centauri_yellow"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/left_gear.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_gear_joint" type="revolute">
+    <origin xyz="0.0137678333896608 -0.00393469228070031 0.0239992699974896" rpy="-1.57089245405947 0.400771502354884 3.07429454658117" />
+    <parent link="link6" />
+    <child link="left_gear" />
+    <axis xyz="0 0 1" />
+    <limit lower="0" upper="0.95" effort="5" velocity="1" />
+    <mimic joint="right_gear_joint" multiplier="-1" offset="0"/>
+    <dynamics friction="1.5" />
+  </joint>
+
+  <link name="left_finger">
+    <inertial>
+      <origin xyz="-0.00459491181291338 -0.028798660398803 -0.00325244127537946" rpy="0 0 0" />
+      <mass value="0.0104910911949307" />
+      <inertia  ixx="4.757457359033471e-06" ixy="0" ixz="0" iyy="7.755729186462954e-07" iyz="0" izz="4.966511401928294e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/left_finger.STL" />
+      </geometry>
+      <material name="centauri_yellow"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/left_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_finger_joint" type="revolute">
+    <origin xyz="-0.0399999999999999 0 0" rpy="1.97708169280553E-13 0 1.18785190017512E-15" />
+    <parent link="left_gear" />
+    <child link="left_finger" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.5" upper="0" effort="5" velocity="1" />
+    <mimic joint="left_gear_joint" multiplier="-1" offset="0"/>
+    <dynamics friction="1.5" />
+  </joint>
+
+  <link name="left_pivot">
+    <inertial>
+      <origin xyz="-0.0200000000003783 1.7963408538435E-13 -0.00299999999915881" rpy="0 0 0" />
+      <mass value="0.00167027391699937" />
+      <inertia  ixx="1.3887110424777991e-08" ixy="0" ixz="0" iyy="3.2498259093576485e-07" iyz="0" izz="3.2884805768432345e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/left_pivot.STL" />
+      </geometry>
+      <material name="centauri_yellow"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find centauri_description)/meshes/left_pivot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="left_pivot_joint" type="revolute">
+    <origin xyz="0.00678474024778378 -0.00346395049278106 0.0439996403025864" rpy="-1.57089245405947 0.400771502354882 3.07429454658117" />
+    <parent link="link6" />
+    <child link="left_pivot" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="5" velocity="1" />
+    <mimic joint="left_gear_joint" multiplier="1" offset="0"/>
+    <dynamics friction="1.5" />
+  </joint>
+</robot>

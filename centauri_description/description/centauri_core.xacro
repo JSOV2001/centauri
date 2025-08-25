@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <material name="centauri_table">
+      <color rgba="1 1 1 1"/>
+  </material>
+
+  <material name="centauri_black">
+      <color rgba="0.2 0.196078431 0.192156863 1"/>
+  </material>
+
+  <material name="centauri_yellow">
+      <color rgba="1 1 0 1"/>
+  </material>
+  
+  <link name="base_footprint">
+    <inertial>
+      <origin xyz="-3.87008276523659E-05 -0.0817645704237657 -0.030378156140952" rpy="0 0 0" />
+      <mass value="3.65383133115989" />
+      <inertia  ixx="0.09620416476260482" ixy="0" ixz="0" iyy="0.09620416476260482" iyz="0" izz="0.18421400426477288" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/base_footprint.STL" />
+      </geometry>
+      <material name="centauri_table"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/base_footprint.STL" />
+      </geometry>
+
+       <geometry>
+  </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint_base" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="base_footprint"  />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="link0">
+    <inertial>
+      <origin xyz="0.0807291362657826 1.35637930692711E-07 0.0322703892739422" rpy="0 0 0" />
+      <mass value="1.5913265865128" />
+      <inertia  ixx="0.006326695700280836" ixy="0" ixz="0" iyy="0.011276109304923142" iyz="0" izz="0.015558257830895829" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/link0.STL" />
+      </geometry>
+      <material name="centauri_yellow"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/link0.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint0" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_footprint" />
+    <child link="link0" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <!-- Robot's link 1 --> 
+  <link name="link1">
+    <inertial>
+      <origin xyz="3.76244275456517E-05 0.07417823767633 -8.98233600953868E-05" rpy="0 0 0" />
+      <mass value="2.01538850239224" />
+      <inertia  ixx="0.013476289068307574" ixy="0" ixz="0" iyy="0.02265511278216395" iyz="0" izz="0.023363884685992" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/link1.STL" />
+      </geometry>
+      <material name="centauri_black"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint1" type="revolute">
+    <origin xyz="0 0 0.0660000000000001" rpy="1.5708963267949 0 -0.452226747641724" />
+    <parent link="link0" />
+    <child link="link1" />
+    <axis xyz="0 1 0" />
+    <limit lower="-1.5708" upper="1.5708" effort="300" velocity="10" />
+    <dynamics friction="1.5" damping="0.1" />
+  </joint>
+
+  <!-- Robot's link 2 --> 
+  <link name="link2">
+    <inertial>
+      <origin xyz="0.00019803 0.082039 0.0010087" rpy="0 0 0" />
+      <mass value="1.9635" />
+      <inertia  ixx="0.02063287702209914" ixy="0" ixz="0" iyy="0.0053203652540438325" iyz="0" izz="0.020024715527956653" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/link2.STL" />
+      </geometry>
+      <material name="centauri_yellow"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint2" type="revolute">
+    <origin xyz="0 0.1455 0" rpy="0 -1.11019042810366 0" />
+    <parent link="link1" />
+    <child link="link2" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
+    <dynamics friction="1.5" damping="0.1" />
+  </joint>
+
+  <!-- Robot's link 3 --> 
+  <link name="link3">
+    <inertial>
+      <origin xyz="0.000626139076089688 0.0486487096653359 0.000675674262400602" rpy="0 0 0" />
+      <mass value="1.18050061400462" />
+      <inertia  ixx="0.0036077228403450846" ixy="0" ixz="0" iyy="0.0014786512340732411" iyz="0" izz="0.0039046437540969266" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/link3.STL" />
+      </geometry>
+      <material name="centauri_black"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint3" type="revolute">
+    <origin xyz="0.000683655378621667 0.221122735963581 -0.0034958933328718" rpy="-3.51525449374113E-16 3.46944695195361E-18 0" />
+    <parent link="link2" />
+    <child link="link3" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
+    <dynamics friction="1.5" damping="0.1" />
+  </joint>
+
+  <!-- Robot's link 4 --> 
+  <link name="link4">
+    <inertial>
+      <origin xyz="0.011293 -0.00022493 0.045445" rpy="0 0 0" />
+      <mass value="0.65268" />
+      <inertia  ixx="0.0012004874438368324" ixy="0" ixz="0" iyy="0.001359027438412866" iyz="0" izz="0.0007240865915798544" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/link4.STL" />
+      </geometry>
+      <material name="centauri_black"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint4" type="revolute">
+    <origin xyz="0.00043975 0.1275 0" rpy="-1.5708 1.5624 -0.0034491" />
+    <parent link="link3" />
+    <child link="link4" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
+    <dynamics friction="1.5" damping="0.1" />
+  </joint>
+
+  <!-- Robot's link 5 --> 
+  <link name="link5">
+    <inertial>
+      <origin xyz="0.00013449 0.004274 -0.00031217" rpy="0 0 0" />
+      <mass value="0.16415" />
+      <inertia  ixx="0.0001281536352001132" ixy="0" ixz="0" iyy="9.850019324706154e-05" iyz="0" izz="0.00016362022735135528" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/link5.STL" />
+      </geometry>
+      <material name="centauri_yellow"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint5" type="revolute">
+    <origin xyz="-0.000999998579141709 0 0.0950000000001046" rpy="1.5708963267949 -0.0171419017753631 -1.56911057527423" />
+    <parent link="link4" />
+    <child link="link5" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
+    <dynamics friction="1.5" damping="0.1" />
+  </joint>
+  
+  <!-- Robot's link 6 --> 
+  <link name="link6">
+    <inertial>
+      <origin xyz="-0.0028307 -0.014417 0.020832" rpy="0 0 0" />
+      <mass value="0.064418" />
+      <inertia  ixx="4.2630681336324575E-05" ixy="0" ixz="0" iyy="3.4930583457061154E-05" iyz="0" izz="5.1781565956504675E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/link6.STL" />
+      </geometry>
+      <material name="centauri_black"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find centauri_description)/meshes/link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint6" type="revolute">
+    <origin xyz="0.0012895 0.04098 0" rpy="1.6915E-08 1.5708 1.5393" />
+    <parent link="link5" />
+    <child link="link6" />
+    <axis xyz="5.3025E-05 0 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="10" />
+    <dynamics friction="1.5" damping="0.1" />
+  </joint>
+
+  <link name="tool_center"/>
+  
+  <joint name="tool_center_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.08" />
+    <parent link="link6" />
+    <child link="tool_center" />
+    <axis xyz="0 0 0" />
+  </joint>
+</robot>
