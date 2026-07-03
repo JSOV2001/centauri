@@ -2,7 +2,7 @@
 # Centauri
 Based-on the work of: https://github.com/andresaraque/centauri6dof.git. This repository is my take on UAO's Centauri, a fully ROS-based 6-DOF robot manipulator. It's a migration to ROS2 distributions
 
-Before moving forward, I want to thank to @andresaraque, @franciscopedroza030595 and @vromerocano for their contribution to open-source movement in Colombia. To know more details, please check in here: https://www.uao.edu.co/lo-uao-de-la-semana/centauri-el-robot-de-los-autonomos/
+Before moving forward, I want to thank to Andres Araque (@andresaraque), Francisco Pedroza (@franciscopedroza030595),and Victor Romero, PhD (@vromerocano) for their contribution to open-source movement in Colombia. To know more details, please check in here: https://www.uao.edu.co/lo-uao-de-la-semana/centauri-el-robot-de-los-autonomos/
 
 ## Home Configuration
 In order to play with the robot, it needs to be launched in Gazebo firstly:
