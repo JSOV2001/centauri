@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+    <!-- Hardware interface for robot's controller -->
+    <ros2_control name="GazeboSystem" type="system">
+        <hardware>
+        <!-- Hardware interface will be Gazebo -->
+            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+        </hardware>
+        
+        <!-- Joint 1 is enabled to be controlled -->
+        <joint name="joint1">
+            <!-- Joint 1's control variable is position -->
+            <command_interface name="position">
+                <param name="min">-1.5708</param>
+                <param name="max">1.5708</param>
+            </command_interface>
+            <!-- Joint 1's position can be read-->
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <!-- Joint 1's velocity can be read-->
+            <state_interface name="velocity"/>
+            </joint>
+        
+        <!-- The same goes for every joint -->
+        <joint name="joint2">
+            <command_interface name="position">
+                <param name="min">-1.5708</param>
+                <param name="max">1.5708</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <joint name="joint3">
+            <command_interface name="position">
+                <param name="min">-1.5708</param>
+                <param name="max">1.5708</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/> 
+        </joint>
+
+        <joint name="joint4">
+            <command_interface name="position">
+                <param name="min">-1.5708</param>
+                <param name="max">1.5708</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/> 
+        </joint>
+
+        <joint name="joint5">
+            <command_interface name="position">
+                <param name="min">-1.5708</param>
+                <param name="max">1.5708</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <joint name="joint6">
+            <command_interface name="position">
+                <param name="min">-1.5708</param>
+                <param name="max">1.5708</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/> 
+        </joint>
+
+        <!-- Gripper's right-side joints are enabled to be controlled -->
+        <joint name="right_gear_joint">
+            <command_interface name="position">
+                <param name="min">-1.5708</param>
+                <param name="max">1.5708</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <joint name="right_finger_joint">
+            <command_interface name="position">
+                <param name="min">-1.5708</param>
+                <param name="max">1.5708</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <joint name="right_pivot_joint">
+            <command_interface name="position">
+                <param name="min">-1.5708</param>
+                <param name="max">1.5708</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+        
+        <!-- Gripper's left-side joints are enabled to be controlled -->
+        <joint name="left_gear_joint">
+            <command_interface name="position">
+                <param name="min">-1.5708</param>
+                <param name="max">1.5708</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/> 
+        </joint>
+
+        <joint name="left_finger_joint">
+            <command_interface name="position">
+                <param name="min">-1.5708</param>
+                <param name="max">1.5708</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/> 
+        </joint>
+
+        <joint name="left_pivot_joint">
+            <command_interface name="position">
+                <param name="min">-1.5708</param>
+                <param name="max">1.5708</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/> 
+        </joint>
+    </ros2_control>
+    
+    <!-- Load robot's controller -->
+    <gazebo>
+        <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="libgz_ros2_control-system.so">  
+            <robotNamespace>centauri</robotNamespace>
+            <parameters>$(find centauri_description)/config/controllers.yaml</parameters>
+        </plugin>
+    </gazebo>
+</robot >

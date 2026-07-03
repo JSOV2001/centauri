@@ -1,0 +1,11 @@
+# Goal
+float64 x
+float64 y
+float64 z
+float64 time_range
+---
+# Result
+float64[] q_final
+---
+# Feedback
+float64[] q_curr

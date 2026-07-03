@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!-- Gazebo's properties for robot's links -->
+		<gazebo reference="base_footprint">
+			<material>Gazebo/White</material>
+	        <gravity>1</gravity>
+		</gazebo>
+		
+		<gazebo reference="link0">
+			<material>Gazebo/Yellow</material>
+	        <self_collide>1</self_collide>
+	        <gravity>1</gravity>
+		</gazebo>	
+		
+		<gazebo reference="link1">
+			<material>Gazebo/Black</material>
+	        <self_collide>1</self_collide>
+	        <gravity>1</gravity>
+		</gazebo>	
+
+		<gazebo reference="link2">
+			<material>Gazebo/Yellow</material>
+	        <self_collide>1</self_collide>
+	        <gravity>1</gravity>
+		</gazebo>	
+
+		<gazebo reference="link3">
+			<material>Gazebo/Black</material>
+	        <self_collide>1</self_collide>
+	        <gravity>1</gravity>
+		</gazebo>	
+
+		<gazebo reference="link4">
+			<material>Gazebo/Black</material>
+	        <self_collide>1</self_collide>
+	        <gravity>1</gravity>
+		</gazebo>	
+
+		<gazebo reference="link5">
+			<material>Gazebo/Yellow</material>
+	        <self_collide>1</self_collide>
+	        <gravity>1</gravity>
+		</gazebo>	
+
+		<gazebo reference="link6">
+			<material>Gazebo/Black</material>
+	        <self_collide>1</self_collide>
+	        <gravity>1</gravity>
+		</gazebo>	
+
+    <!-- Gazebo's properties for robot's right-side gripper -->
+		<gazebo reference="right_gear">
+			<material>Gazebo/Yellow</material>
+	        <self_collide>1</self_collide>
+	        <gravity>1</gravity>
+		</gazebo>	
+
+		<gazebo reference="right_finger">
+			<material>Gazebo/Yellow</material>
+	        <self_collide>1</self_collide>
+	        <gravity>1</gravity>
+		</gazebo>	
+
+		<gazebo reference="right_pivot">
+			<material>Gazebo/Yellow</material>
+	        <self_collide>1</self_collide>
+	        <gravity>1</gravity>
+		</gazebo>	
+
+    <!-- Gazebo's properties for robot's left-side gripper -->
+		<gazebo reference="left_gear">
+			<material>Gazebo/Yellow</material>
+	        <self_collide>1</self_collide>
+	        <gravity>1</gravity>
+		</gazebo>	
+
+		<gazebo reference="left_finger">
+			<material>Gazebo/Yellow</material>
+	        <self_collide>1</self_collide>
+	        <gravity>1</gravity>
+		</gazebo>	
+
+		<gazebo reference="left_pivot">
+			<material>Gazebo/Yellow</material>
+	        <self_collide>1</self_collide>
+	        <gravity>1</gravity>
+		</gazebo>	
+ </robot>
